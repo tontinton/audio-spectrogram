@@ -1,0 +1,10 @@
+[package]
+name = "audio-spectogram"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rustfft = "6.0.1"
+puremp3 = "0.1.0"
+image = "0.24.4"
+clap = { version = "4.0.23", features = ["derive"] }
