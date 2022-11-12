@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "audio-spectogram"
+name = "audio-spectrogram"
 version = "0.1.0"
 dependencies = [
  "clap",
