@@ -29,7 +29,7 @@ fn main() {
     let mut planner = FftPlanner::new();
     let fft = planner.plan_fft_forward(CHUNK_SIZE);
 
-    for (offset, (left, _)) in samples.enumerate() {
+    for (offset, (left, right)) in samples.enumerate() {
         if offset % CHUNK_SIZE == 0 {
             chunks.push(vec![Complex { re: 0.0, im: 0.0 }; CHUNK_SIZE]);
         }
@@ -37,7 +37,7 @@ fn main() {
         let len = chunks.len();
         let chunk = &mut chunks[len - 1];
 
-        chunk[offset % CHUNK_SIZE].re = left;
+        chunk[offset % CHUNK_SIZE].re = (left + right) / 2.0;
         chunk[offset % CHUNK_SIZE].im = 0.0;
 
         if (offset + 1) % CHUNK_SIZE == 0 {
